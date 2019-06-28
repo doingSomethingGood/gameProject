@@ -13,7 +13,25 @@ const dataDeal = {
      */
     expChange(num) {
       this.$store.dispatch('expChange', num);
+    },
+
+    /**
+     * 升级装备的方法
+     * @param obj
+     */
+    equipmentsLevelChange(obj) {
+      this.$store.dispatch('equipmentsLevelChange', obj);
+    },
+
+    /**
+     * 升级装备的方法
+     * @param obj
+     */
+    equipmentsStageChange(obj) {
+      this.$store.dispatch('equipmentsStageChange', obj);
     }
+
+
   }
 
 };

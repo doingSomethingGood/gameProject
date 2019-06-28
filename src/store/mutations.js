@@ -7,7 +7,17 @@ const mutations_type = {
   /**
    * 经验增减
    */
-  EXP_CHANGE: 'expChange'
+  EXP_CHANGE: 'expChange',
+
+  /**
+   * 装备升级
+   */
+  EQUIPMENTS_LEVEL_CHANGE:'equipmentsLevelChange',
+
+  /**
+   * 装备等阶
+   */
+  EQUIPMENTS_STAGE_CHANGE:'equipmentsStageChange'
 
 
 };

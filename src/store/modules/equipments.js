@@ -1,3 +1,5 @@
+import mutations_type from "../mutations";
+
 const equipments = {
   state: {
     equipment1: {
@@ -58,9 +60,52 @@ const equipments = {
 
   getters: {},
 
-  mutations: {},
+  mutations: {
+    /**
+     * 等级
+     * @param state
+     * @param obj
+     */
+    [mutations_type.EQUIPMENTS_LEVEL_CHANGE](state, obj) {
+      let _equipment = state[obj.id];
+      _equipment.level += obj.num;
+      _equipment.attack = _equipment.attack + _equipment.level * 10;
+      _equipment.levelUpCost = _equipment.level * 10;
+    },
 
-  actions: {},
+    /**
+     * 等阶
+     * @param state
+     * @param obj
+     */
+    [mutations_type.EQUIPMENTS_STAGE_CHANGE](state, obj) {
+      let _equipment = state[obj.id];
+      _equipment.stage += obj.num;
+      _equipment.attack = _equipment.attack + _equipment.stage *  20;
+      _equipment.stageUpCost = _equipment.level * 30;
+    }
+  },
+
+  actions: {
+
+    /**
+     * 等级
+     * @param commit
+     * @param obj
+     */
+    [mutations_type.EQUIPMENTS_LEVEL_CHANGE]({commit}, obj) {
+      commit('equipmentsLevelChange', obj)
+    },
+
+    /**
+     * 等阶
+     * @param commit
+     * @param obj
+     */
+    [mutations_type.EQUIPMENTS_STAGE_CHANGE]({commit}, obj) {
+      commit('equipmentsStageChange', obj)
+    },
+  },
 };
 
 export default equipments

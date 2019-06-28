@@ -75,9 +75,10 @@
 
 <style scoped>
   .home-content {
-    height: 83vh;
+    height: 82vh;
     padding: 5px;
     background: #ccc;
     border-radius: 5px;
+    border: 3px dashed #000;
   }
 </style>
