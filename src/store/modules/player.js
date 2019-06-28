@@ -1,10 +1,10 @@
+import mutations_type from '../mutations'
 const player = {
+  // namespaced: true,
   state: {
-    player: {
-      attack: 1,
-      money: 1000,
-      exp: 0,
-    }
+    attack: 1,
+    money: 1000,
+    exp: 0,
   },
 
   getters: {
@@ -12,17 +12,41 @@ const player = {
   },
 
   mutations: {
-    add(state,a) {
-      debugger;
-      state.player.attack += 1;
+    /**
+     * 金币改变的方法
+     * @param state
+     * @param newValue
+     */
+    [mutations_type.MONEY_CHANGE](state, newValue) {
+      state.money += newValue;
+    },
+    /**
+     * 经验值改变的方法
+     * @param state
+     * @param newValue
+     */
+    [mutations_type.EXP_CHANGE](state, newValue) {
+      state.money += newValue;
     }
   },
 
   actions: {
-    addFunction(a, b) {
-      debugger;
-      a.commit('add', b)
-    }
+    /**
+     * 金币改变方法调用
+     * @param commit
+     * @param newValue
+     */
+    [mutations_type.MONEY_CHANGE]({commit}, newValue) {
+      commit('moneyChange', newValue)
+    },
+    /**
+     * 经验值改变方法调用
+     * @param commit
+     * @param newValue
+     */
+    [mutations_type.EXP_CHANGE]({commit}, newValue) {
+      commit('expChange', newValue)
+    },
   }
 
 };

@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from '@/store'
+import './styles/reset.css'
+import './mixins/dataDeal'
+import './mixins/publicJS'
 
 Vue.config.productionTip = false;
 
