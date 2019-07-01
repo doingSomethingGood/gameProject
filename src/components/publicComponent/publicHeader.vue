@@ -8,7 +8,7 @@
       <div class="top-des">
         <div>
           <span class="iconfont resource-icon">&#xe636;</span>
-          <span class="resource-num">{{player.attack}}</span>
+          <span class="resource-num">{{playerAttack}}</span>
         </div>
 
         <div>
@@ -34,17 +34,48 @@
     components: {},
     props: {},
     computed: {
-      ...mapGetters(['player'])
+      ...mapGetters(['player', 'equipments', 'skills'])
     },
-    watch: {},
+    watch: {
+      "player.money"() {
+        this.getAttack();
+      },
+    },
     data() {
-      return {}
+      return {
+        playerAttack: 0
+      }
     },
     created() {
+      this.getAttack();
     },
     mounted() {
     },
-    methods: {}
+    methods: {
+      /**
+       * 获取当前攻击力
+       */
+      getAttack() {
+        let _this = this;
+        let _equipments = this.equipments,
+          _skills = this.skills;
+        _this.playerAttack = _this.player.attack;
+        for (let key in _equipments) {
+          for (let _key in _equipments[key]) {
+            if (_key === 'attack') {
+              _this.playerAttack += _equipments[key]['attack'];
+            }
+          }
+        }
+        for (let key in _skills) {
+          for (let _key in _skills[key]) {
+            if (_key === 'attack') {
+              _this.playerAttack += _skills[key]['attack'];
+            }
+          }
+        }
+      }
+    }
   }
 </script>
 

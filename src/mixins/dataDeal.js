@@ -29,7 +29,16 @@ const dataDeal = {
      */
     equipmentsStageChange(obj) {
       this.$store.dispatch('equipmentsStageChange', obj);
-    }
+    },
+
+    /**
+     * 升级装备的方法
+     * @param obj
+     */
+    skillsLevelChange(obj) {
+      this.$store.dispatch('skillsLevelChange', obj);
+    },
+
 
 
   }

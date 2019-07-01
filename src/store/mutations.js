@@ -17,7 +17,12 @@ const mutations_type = {
   /**
    * 装备等阶
    */
-  EQUIPMENTS_STAGE_CHANGE:'equipmentsStageChange'
+  EQUIPMENTS_STAGE_CHANGE:'equipmentsStageChange',
+
+  /**
+   * 技能等级
+   */
+  SKILLS_LEVEL_CHANGE:'skillsLevelChange',
 
 
 };
